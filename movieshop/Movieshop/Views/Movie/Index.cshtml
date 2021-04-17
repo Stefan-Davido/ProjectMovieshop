@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Movieshop.Entities.Movie> 
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h1 class="text-dark">Movie</h1>
+    </div>
+</div>
+  
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-6 font-italic font-weight-bold">
+            <h3>All Movies</h3>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-action="Create" class="btn btn-success">
+                <i class="fas fa-plus-square mr-2"></i>CREATE
+            </a>
+        </div>
+    </div>
+    <table class="col-12 table table-bordered">
+        <thead class="table-dark ">
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Producer
+                </th>
+                <th>
+                    Actor
+                </th>
+                <th>
+                    Category
+                </th>
+                <th>
+                    Published Year
+                </th>
+                <th>
+                    Time Last
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>
+                       @Html.DisplayFor(Model => movie.Title)
+                    </td>
+                    <td>
+                        <a href="" onclick="RedirectToProducerDetails(@movie.ProducerId)">@Html.DisplayFor(model => movie.ProducerName)</a>
+                    </td>
+                    <td>
+                        <a href="" onclick="RedirectToActorDetails(@movie.ActersId)">@Html.DisplayFor(model => movie.ActersName)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => movie.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => movie.Realise)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => movie.TimeLast)
+                    </td>
+                    <td>
+                        <div class="row mt-2">
+                            <a asp-action="Edit" asp-route-id="@movie.Id" class="btn btn-primary btn-block">
+                                <i class="fas fa-pen-square mr-2"></i>Edit
+                            </a>
+                        </div>
+                        <div class="row mt-2 ">
+                            <a asp-action="Details" asp-route-id="@movie.Id" class="btn btn-info btn-block">
+                                <i class="fas fa-book mr-2"></i>Details
+                            </a>
+                        </div>
+                        <div class="row mt-2">
+                            <a asp-action="Delete" asp-route-id="@movie.Id" class="btn btn-danger btn-block">
+                                <i class="fas fa-trash-alt mr-2"></i>Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/movie/movie.js"></script>
+}
+

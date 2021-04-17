@@ -1,0 +1,36 @@
+﻿@model Movieshop.Areas.Identity.UserModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>USER DETAILS</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="border p-5">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <td>@Html.DisplayFor(model => model.Name)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <td>@Html.DisplayFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.RoleName)</th>
+                    <td>@Html.DisplayFor(model => model.RoleName)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Id)</th>
+                    <td>@Html.DisplayFor(model => model.Id)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>

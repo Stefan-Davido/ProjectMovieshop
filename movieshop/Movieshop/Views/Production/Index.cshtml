@@ -1,0 +1,71 @@
+﻿
+@model IEnumerable<Movieshop.Entities.Production>
+
+<div class="container">
+    <div class="row">
+        <div class="row mt-4">
+            <div class="col-6 font-italic font-weight-bold">
+                <h2>Production</h2>
+            </div>
+            <div class="col-6 text-right">
+                <a asp-action="Create" class="btn btn-success">
+                    <i class="fas fa-plus-square mr-2"></i>CREATE
+                </a>
+            </div>
+        </div>
+        <table class="col-12 table table-bordered">
+            <thead class="table-dark ">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Year
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var production in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => production.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => production.Country)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => production.Year)
+                        </td>
+                        <td>
+                            <div class="row mt-2">
+                                <a asp-action="Edit" asp-route-id="@production.Id" class="btn btn-block btn-primary">
+                                    <i class="fas fa-edit"></i>&nbsp; Edit
+                                </a>
+                            </div>
+                            <div class="row mt-2">
+                                <a asp-action="Details" asp-route-id="@production.Id" class="btn btn-block btn-info">
+                                    <i class="fas fa-info"></i>&nbsp;Details
+                                </a>
+                            </div>
+                            <div class="row mt-2">
+                                <a asp-action="Delete" asp-route-id="@production.Id" class="btn btn-block btn-danger">
+                                    <i class="fas fa-trash-alt"></i>&nbsp;Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>

@@ -1,0 +1,89 @@
+﻿
+@model IEnumerable<Movieshop.Entities.Actor>
+
+<div class="container">
+
+    <div class="row mt-4">
+        <div class="col-6 font-italic font-weight-bold">
+            <h2>Actor</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-action="Create" class="btn btn-success">
+                <i class="fas fa-plus-square mr-2"></i>CREATE
+            </a>
+        </div>
+    </div>
+    <table class="col-12 table table-bordered">
+        <thead class="table-dark ">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Date Birth
+                </th>
+                <th>
+                    Counrty
+                </th>
+                <th>
+                    Awards
+                </th>
+                <th>
+                    Genred
+                </th>
+                <th>
+                    Years Active
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var actor in Model)
+             {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => actor.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => actor.BirthDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => actor.Country)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => actor.Awards)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => actor.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => actor.YearsActive)
+                    </td>
+                    <td>
+                        <div class="row mt-2">
+                            <a asp-action="Edit" asp-route-id="@actor.Id" class="btn btn-block btn-primary">
+                                <i class="fas fa-edit"></i>&nbsp; Edit
+                            </a>
+                        </div>
+                        <div class="row mt-2">
+                            <a asp-action="Details" asp-route-id="@actor.Id" class="btn btn-block btn-info">
+                                <i class="fas fa-info"></i>&nbsp;Details
+                            </a>
+                        </div>
+                        <div class="row mt-2">
+                            <a asp-action="Delete" asp-route-id="@actor.Id" class="btn btn-block btn-danger">
+                                <i class="fas fa-trash-alt"></i>&nbsp;Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+             }
+        </tbody>
+    </table>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+

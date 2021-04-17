@@ -1,0 +1,103 @@
+﻿
+@model Movieshop.Entities.Movie
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>DETAILS</h2>
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Title)</th>
+                    <td>@Html.DisplayFor(model => model.Title)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ProducerName)</th>
+                    <td>@Html.DisplayFor(model => model.ProducerName)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ProducerId)</th>
+                    <td>@Html.DisplayFor(model => model.ProducerId)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ActersName)</th>
+                    <td>@Html.DisplayFor(model => model.ActersName)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ActersId)</th>
+                    <td>@Html.DisplayFor(model => model.ActersId)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Realise)</th>
+                    <td>@Html.DisplayFor(model => model.Realise)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TimeLast)</th>
+                    <td>@Html.DisplayFor(model => model.TimeLast)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.CategoryName)</th>
+                    <td>@Html.DisplayFor(model => model.CategoryName)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.CategoryId)</th>
+                    <td>@Html.DisplayFor(model => model.CategoryId)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Language)</th>
+                    <td>@Html.DisplayFor(model => model.Language)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Country)</th>
+                    <td>@Html.DisplayFor(model => model.Country)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.GenreId)</th>
+                    <td>@Html.DisplayFor(model => model.GenreId)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.GenreName)</th>
+                    <td>@Html.DisplayFor(model => model.GenreName)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ProductionName)</th>
+                    <td>@Html.DisplayFor(model => model.ProducerName)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.ProductionId)</th>
+                    <td>@Html.DisplayFor(model => model.ProductionId)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.YearsToWatch)</th>
+                    <td>@Html.DisplayFor(model => model.YearsToWatch)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Price)</th>
+                    <td>@Html.DisplayFor(model => model.Price)</td>
+                </tr>
+                <tr>
+                    <th>Shipping</th>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Rating)</th>
+                    <td>@Html.DisplayFor(model => model.Rating)</td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DateAdded)</th>
+                    <td>@Html.DisplayFor(model => model.DateAdded)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-12">
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>

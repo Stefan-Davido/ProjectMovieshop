@@ -1,0 +1,247 @@
+﻿@model Movieshop.Entities.Movie
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>EDIT MOVIE</h2>
+            <hr />
+        </div>
+    </div>
+    <form asp-action="Edit" class="form-group">
+        <div class="row mt-2">
+            <div class="col-12 text-center">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <label asp-for="ProducerId"></label>
+                <select asp-for="ProducerId" class="form-control" asp-items="ViewBag.Producer"></select>
+                <a class="btn btn-success btn-sm btn-add-new-custom width-150px" data-toggle="modal" data-target="#ProducerModal">Add New Producer</a>
+                <input asp-for="ProducerName" type="text" hidden class="form-control" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <label asp-for="ActersId"></label>
+                <select asp-for="ActersId" class="form-control" asp-items="ViewBag.Actors"></select>
+                <a class="btn btn-success btn-sm btn-add-new-custom width-150px" data-toggle="modal" data-target="#ActorModal">Add New Actor</a>
+                <input asp-for="ActersName" type="text" hidden class="form-control" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-6">
+                <label asp-for="Realise"></label>
+                <input asp-for="Realise" type="date" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="TimeLast"></label>
+                <input asp-for="TimeLast" type="number" class="form-control" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <label asp-for="CategoryId"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Category"></select>
+                <a class="btn btn-success btn-sm btn-add-new-custom width-150px" data-toggle="modal" data-target="#CategoryModal">Add New Category</a>
+                <input asp-for="CategoryName" type="text" hidden class="form-control" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-6">
+                <label asp-for="Language"></label>
+                <input asp-for="Language" type="text" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="Country"></label>
+                <input asp-for="Country" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <label asp-for="GenreId"></label>
+                <select asp-for="GenreId" type="text" class="form-control" asp-items="ViewBag.Genres"></select>
+                <a class="btn btn-success btn-sm btn-add-new-custom width-150px" data-toggle="modal" data-target="#GenreModal">Add New Genre</a>
+                <input asp-for="GenreName" type="text" hidden />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <label asp-for="ProductionId"></label>
+                <select asp-for="ProductionId" class="form-control" asp-items="ViewBag.Production"></select>
+                <a class="btn btn-success btn-sm btn-add-new-custom width-150px" data-toggle="modal" data-target="#ProductionModal">Add New Production</a>
+                <input asp-for="ProductionName" type="text" hidden />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-4">
+                <label asp-for="Awards"></label>
+                <input type="text" asp-for="Awards" class="form-control" />
+            </div>
+            <div class="col-4">
+                <label asp-for="Price"></label>
+                <input asp-for="Price" type="text" class="form-control" />
+            </div>
+            <div class="col-4">
+                <label>Shipping</label>
+                <input type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <input asp-for="URL" type="text" hidden />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-6">
+                <label asp-for="Rating"></label>
+                <input asp-for="Rating" type="text" class="form-control" />
+            </div>
+            <div class="col-6">
+                <label asp-for="DateAdded"></label>
+                <input asp-for="DateAdded" type="date" class="form-control" />
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <input type="submit" class="btn btn-primary form-control" value="Edit">
+            </div>
+        </div>
+    </form>
+    <!-- Upload Photo -->
+    <div class="row mt-2">
+        <div class="col-12">
+            <label>Upload photo - Book cover</label>
+        </div>
+        <div class="col-12 mt-2">
+            <input type="file" #file accept="image/*" id="photoUpload" />
+            <button id="uploadPhoto" class="btn btn-custom-upload btn-block">Upload Photo</button>
+        </div>
+    </div>
+
+    <!-- PRODUCER -->
+    <div class="modal fade" id="ProducerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ProducerModalLabel">Add New Producer</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" placeholder="Enter Name..." class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Country</label>
+                        <input type="text" placeholder="Enter Country..." class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="date" placeholder="Enter Date of birth..." class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Years Active</label>
+                        <input type="text" placeholder="Short Description" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="addNewProducerBtn" type="button" class="btn btn-primary">Add New Producer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ACTOR -->
+    <div class="modal fade" id="ActorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ActorModalLabel">Add New Actor</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="addNewActorBtn" type="button" class="btn btn-primary">Add New Actor</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Category -->
+    <div class="modal fade" id="CategoryModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="CategoryModalLabel">Add New Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="addNewCategoryBtn" type="button" class="btn btn-primary">Add New Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- GENRE -->
+    <div class="modal fade" id="GenreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="GenreModalLabel">Add New Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="addNewCategoryBtn" type="button" class="btn btn-primary">Add New Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- PRODUCTION -->
+    <div class="modal fade" id="ProductionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ProductionModalLabel">Add New Production</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="addNewProductionBtn" type="button" class="btn btn-primary">Add New Production</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/movie/movie.js"></script>
+}

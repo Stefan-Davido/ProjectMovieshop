@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<Movieshop.Entities.Movie>
+
+
+
+<!-- Banner Section -->
+<div id="" class="container-fluid banner m-0 pl-0 pr-0">
+    <!-- SEARCH SECTION -->
+    <div class="container" >
+        <form asp-action="Search">
+            <div class="row">
+                <div class="col-12">
+                    <div class="p-3 search-main search-minus-85">
+                        <button class="btn">
+                            <i class="fas fa-search search-btn-icon"></i>
+                        </button>
+                        <input id="searchBook" type="text" placeholder="Search" class="form-control search-box-style" />
+                        <button id="searchButton" class="btn btn-success search-button">Search</button>
+                    </div>
+                </div>
+            </div>          
+        </form>
+    </div>
+    <div class="row justify-content-center ">
+        <h1 class=" banner-text-style-1">Escape From Reality</h1>
+    </div>
+    <div class="row justify-content-center">
+        <h4 class=" banner-text-style-2">Find Your New Adventure</h4>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-7 quote-section">
+            <blockquote class="quote-text-quote" id="quote">
+                <p class="quote-text-actor" id="quote_Actor"></p>
+                <p class="quote-text-tags" id="quote_tags"></p>
+            </blockquote>
+        </div>
+    </div>
+</div>
+
+<!-- All Books Section -->
+<div class="container-fluid m-0 p-0">
+    <h2 class="mt-5" style="font-family: fantasy">MOVIES</h2>  
+    <div class="row">
+        @foreach (var movie in Model)
+         {
+            <div class="col-12 col-sm-6 col-md-3 col-lg-2 mt-5">
+                <div class="card bg-danger" @*style="background-image:url(/photos/@movie.URL);"*@ >
+                    <img src="~/photos/@movie.URL" class="img-fluid" style="max-width:350px;height:300px !important;" />
+                    <div class="card-body" style="height:300px !important">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => movie.Title)</h5>
+                        <hr />
+                        <h6 class=""><em>Cast:&nbsp;</em>@Html.DisplayFor(modelItem => movie.ActersName) </h6>
+                        <p class="card-text">Category:&nbsp;@Html.DisplayFor(modelItem => movie.CategoryName) </p>
+                        <p class="card-text">Rating:&nbsp;@Html.DisplayFor(modelItem => movie.Rating) </p>
+                        <button id="" class="btn btn-secondary btn-block">
+                            <i class="fas fa-plus"></i>&nbsp;Add to Wishlist
+                        </button>
+                        <button id="" class="btn btn-success btn-block">
+                            <i class="fas fa-cart-plus"></i>&nbsp;Add to Cart
+                        </button>
+                    </div>
+                </div>
+           </div>              
+         }     
+    </div> 
+</div>
+
+@section Scripts {
+    <script src="~/js/movie/movie.js"></script>
+}
